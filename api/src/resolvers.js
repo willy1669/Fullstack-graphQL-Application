@@ -5,12 +5,19 @@
 
 module.exports = {
   Query: {
-    pets(_, {input}, ctx) {
-      return ctx.models.Pet.findMany()
-    }
+    pets(_, { input }, ctx) {
+      return ctx.models.Pet.findMany();
+    },
+    shoes(_, { input }) {
+      return [
+        { brand: "nike", size: 26 },
+        { brand: "reebok", size: 32 },
+        { brand: "addidas", size: 45 },
+      ].filter((shoe) => shoe.brand === input.brand);
+    },
   },
   // Mutation: {
-    
+
   // },
   // Pet: {
   //   img(pet) {
@@ -19,7 +26,5 @@ module.exports = {
   //       : 'http://placekitten.com/300/300'
   //   }
   // },
-  User: {
-    
-  }
-}
+  User: {},
+};
