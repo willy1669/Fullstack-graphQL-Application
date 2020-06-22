@@ -7,6 +7,9 @@ const typeDefs = gql`
   type User {
       id: ID!
       userame: String!
+      name: String!
+      firstName: String!
+      lastName: String!
   }
 
   type Pet {
@@ -16,8 +19,13 @@ const typeDefs = gql`
       type: String!
   }
 
+  input PetInput {
+      name: String
+      type: String
+  }
+
   type Query {
-      pets: [Pet]!
+      pets(type: String!): [Pet]!
   }
 
 `;
