@@ -12,6 +12,16 @@ const typeDefs = gql`
       lastName: String!
   }
 
+  type Shoe {
+      size: Int!
+      brand: String!
+  }
+
+  input ShoeInput {
+      brand: String
+      size: Int
+  }
+
   type Pet {
       id: ID!
       createdAt: String!
@@ -25,7 +35,8 @@ const typeDefs = gql`
   }
 
   type Query {
-      pets(type: String!): [Pet]!
+      shoes(input: ShoeInput): [Shoe]!
+      pets(input: PetInput): [Pet]!
   }
 
 `;
