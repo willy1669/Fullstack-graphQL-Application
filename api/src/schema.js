@@ -37,6 +37,7 @@ const typeDefs = gql`
   type Query {
       shoes(input: ShoeInput): [Shoe]!
       pets(input: PetInput): [Pet]!
+      pet(input: PetInput): Pet
   }
 
 `;

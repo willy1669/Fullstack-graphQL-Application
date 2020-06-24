@@ -6,7 +6,7 @@
 module.exports = {
   Query: {
     pets(_, { input }, ctx) {
-      return ctx.models.Pet.findMany();
+      return ctx.models.Pet.findMany(input);
     },
     shoes(_, { input }) {
       return [
@@ -15,6 +15,9 @@ module.exports = {
         { brand: "addidas", size: 45 },
       ].filter((shoe) => shoe.brand === input.brand);
     },
+    pet(_, { input }, ctx) {
+      return ctx.models.findOne(input)
+    }
   },
   // Mutation: {
 
