@@ -39,6 +39,10 @@ const typeDefs = gql`
     type: String
   }
 
+  input NewPetInput {
+      name: String!
+      type: String!
+  }
   type Query {
     shoes(input: ShoeInput): [Shoe]!
     pets(input: PetInput): [Pet]!
@@ -47,6 +51,7 @@ const typeDefs = gql`
 
   type Mutation {
       newShoe(input: NewShoeInput!): Shoe!
+      newPet(input: NewPetInput!): Pet!
   }
 `;
 
