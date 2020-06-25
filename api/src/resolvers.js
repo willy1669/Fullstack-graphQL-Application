@@ -18,10 +18,13 @@ module.exports = {
     pet(_, { input }, ctx) {
       return ctx.models.findOne(input)
     }
+    
   },
-  // Mutation: {
-
-  // },
+  Mutation: {
+    newShoe(_, {input}) {
+      return input
+    }
+  },
   // Pet: {
   //   img(pet) {
   //     return pet.type === 'DOG'
