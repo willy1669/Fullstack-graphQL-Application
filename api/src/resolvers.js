@@ -23,6 +23,10 @@ module.exports = {
   Mutation: {
     newShoe(_, {input}) {
       return input
+    },
+    newPet(_, {input}, ctx) {
+      const pet = ctx.models.create(input);
+      return pet;
     }
   },
   // Pet: {

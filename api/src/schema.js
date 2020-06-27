@@ -12,6 +12,13 @@ const typeDefs = gql`
     lastName: String!
   }
 
+  type Address {
+      city: String!
+      street: String!
+      state: String!
+      Province: String!
+      Number: Int!
+  }
   type Shoe {
     size: Int!
     brand: String!
