@@ -19,6 +19,10 @@ const typeDefs = gql`
       Province: String!
       Number: Int!
   }
+  type BankInfo {
+    name: String!
+    number: Int! 
+}
   type Shoe {
     size: Int!
     brand: String!
@@ -29,7 +33,7 @@ const typeDefs = gql`
     size: Int
   }
 
-  input NewShoeInput {
+  input NewShoeInput {  
     brand: String!
     size: Int!
   }
