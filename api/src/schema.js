@@ -31,16 +31,16 @@ const typeDefs = gql`
 }
   type Shoe {
     size: Int!
-    brand: String!
+    brand: ShoeType!
   }
 
   input ShoeInput {
-    brand: String
+    brand: ShoeType
     size: Int
   }
 
   input NewShoeInput {  
-    brand: String!
+    brand: ShoeType!
     size: Int!
   }
 
