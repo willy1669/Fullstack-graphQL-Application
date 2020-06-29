@@ -25,7 +25,7 @@ module.exports = {
       return input
     },
     newPet(_, {input}, ctx) {
-      const pet = ctx.models.create(input);
+      const pet = ctx.models.Pet.create(input);
       return pet;
     }
   },
