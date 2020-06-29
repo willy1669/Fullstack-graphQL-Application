@@ -4,6 +4,12 @@ const { gql } = require("apollo-server");
  * Type Definitions for our Schema using the SDL.
  */
 const typeDefs = gql`
+  enum ShoeType {
+    JORDAN
+    ADIDDAS
+    NIKE
+    REEBOK
+  }
   type User {
     id: ID!
     userame: String!
