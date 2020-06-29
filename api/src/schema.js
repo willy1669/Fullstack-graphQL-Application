@@ -4,6 +4,12 @@ const { gql } = require("apollo-server");
  * Type Definitions for our Schema using the SDL.
  */
 const typeDefs = gql`
+  enum ShoeType {
+    JORDAN
+    ADIDDAS
+    NIKE
+    REEBOK
+  }
   type User {
     id: ID!
     userame: String!
@@ -25,16 +31,16 @@ const typeDefs = gql`
 }
   type Shoe {
     size: Int!
-    brand: String!
+    brand: ShoeType!
   }
 
   input ShoeInput {
-    brand: String
+    brand: ShoeType
     size: Int
   }
 
   input NewShoeInput {  
-    brand: String!
+    brand: ShoeType!
     size: Int!
   }
 
