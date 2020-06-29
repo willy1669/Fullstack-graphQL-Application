@@ -18,6 +18,10 @@ const typeDefs = gql`
     lastName: String!
   }
 
+  interface Shoe {
+    size: Int!
+    brand: ShoeType!
+  }
   type Address {
       city: String!
       street: String!
@@ -29,9 +33,16 @@ const typeDefs = gql`
     name: String!
     number: Int! 
 }
-  type Shoe {
+  type Sneaker implements Shoe {
     size: Int!
     brand: ShoeType!
+    sport: String!
+  }
+
+  type Boot implements Shoe {
+    size: Int!
+    brand: ShoeType!
+    hasGrip: Boolean!
   }
 
   input ShoeInput {
