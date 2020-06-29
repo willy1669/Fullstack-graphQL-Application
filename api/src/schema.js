@@ -36,13 +36,13 @@ const typeDefs = gql`
   type Sneaker implements Shoe {
     size: Int!
     brand: ShoeType!
-    sport: String
+    sport: String!
   }
 
   type Boot implements Shoe {
     size: Int!
     brand: ShoeType!
-    hasGrip: Boolean
+    hasGrip: Boolean!
   }
 
   input ShoeInput {
