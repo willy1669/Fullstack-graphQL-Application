@@ -18,6 +18,10 @@ const typeDefs = gql`
     lastName: String!
   }
 
+  type EmploymentStatus {
+    status: Boolean!
+  }
+
   interface Shoe {
     size: Int!
     brand: ShoeType!
@@ -73,6 +77,7 @@ const typeDefs = gql`
   }
   type Query {
     shoes(input: ShoeInput): [Shoe]!
+    shoe(input: ShoeInput): [Shoe]!
     pets(input: PetInput): [Pet]!
     pet(input: PetInput): Pet
   }
