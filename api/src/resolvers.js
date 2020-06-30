@@ -15,6 +15,13 @@ module.exports = {
         { brand: "addidas", size: 45 },
       ].filter((shoe) => shoe.brand === input.brand);
     },
+    shoe(_, { input }) {
+      return [
+        { brand: "nike", size: 12, sport: 'basketball' },
+        { brand: "reebok", size: 32, hasGrip: true },
+        { brand: "addidas", size: 45 },
+      ]
+    }, 
     pet(_, { input }, ctx) {
       return ctx.models.findOne(input)
     }
@@ -29,6 +36,12 @@ module.exports = {
       return pet;
     }
   },
+  Shoe: {
+    __resolveType(shoe) {
+      if (shoe.sport) return 'Sneaker'
+      return 'Boot'
+    }
+  }, 
   // Pet: {
   //   img(pet) {
   //     return pet.type === 'DOG'
