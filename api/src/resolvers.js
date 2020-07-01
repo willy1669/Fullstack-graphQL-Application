@@ -17,9 +17,9 @@ module.exports = {
     },
     shoe(_, { input }) {
       return [
-        { brand: "nike", size: 12, sport: 'basketball' },
-        { brand: "reebok", size: 32, hasGrip: true },
-        { brand: "addidas", size: 45 },
+        { brand: "JORDAN", size: 12, sport: 'basketball' },
+        { brand: "NIKE", size: 32, hasGrip: true },
+        { brand: "ADIDDAS", size: 45, hasGrip: false },
       ]
     }, 
     pet(_, { input }, ctx) {
