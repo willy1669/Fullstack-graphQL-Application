@@ -4,6 +4,7 @@ const { gql } = require("apollo-server");
  * Type Definitions for our Schema using the SDL.
  */
 const typeDefs = gql`
+  union FootWear = Sneaker | Boot
   enum ShoeType {
     JORDAN
     ADIDDAS
@@ -77,7 +78,8 @@ const typeDefs = gql`
   }
   type Query {
     shoes(input: ShoeInput): [Shoe]!
-    shoe(input: ShoeInput): [Shoe]!
+    allShoes(input: ShoeInput): [Shoe]!
+    searchShoes(input: ShoeInput): [FootWear]!
     pets(input: PetInput): [Pet]!
     pet(input: PetInput): Pet
   }
