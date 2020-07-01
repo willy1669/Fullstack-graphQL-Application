@@ -5,6 +5,15 @@
 
 module.exports = {
   Query: {
+    me() {
+      return {
+        id: 1,
+        email: "williamschinonso11@gmail.com",
+        avatar: "http://yoda.png",
+        friends: [],
+        shoes: [],
+      };
+    },
     pets(_, { input }, ctx) {
       return ctx.models.Pet.findMany(input);
     },
@@ -17,44 +26,43 @@ module.exports = {
     },
     allShoes(_, { input }) {
       return [
-        { brand: "JORDAN", size: 12, sport: 'basketball' },
-        { brand: "NIKE", size: 32, hasGrip: true },
-        { brand: "ADIDDAS", size: 45, hasGrip: false },
-      ]
-    }, 
+        { brand: "JORDAN", size: 12, sport: "basketball", user: 1 },
+        { brand: "NIKE", size: 32, hasGrip: true, user: 1 },
+        { brand: "ADIDDAS", size: 45, hasGrip: false, user: 1 },
+      ];
+    },
     searchShoes(_, { input }) {
       return [
-        { brand: "JORDAN", size: 12, sport: 'basketball' },
+        { brand: "JORDAN", size: 12, sport: "basketball" },
         { brand: "NIKE", size: 32, hasGrip: true },
         { brand: "ADIDDAS", size: 45, hasGrip: false },
-      ]
-    }, 
+      ];
+    },
     pet(_, { input }, ctx) {
-      return ctx.models.findOne(input)
-    }
-    
+      return ctx.models.findOne(input);
+    },
   },
   Mutation: {
-    newShoe(_, {input}) {
-      return input
+    newShoe(_, { input }) {
+      return input;
     },
-    newPet(_, {input}, ctx) {
+    newPet(_, { input }, ctx) {
       const pet = ctx.models.Pet.create(input);
       return pet;
-    }
+    },
   },
   Shoe: {
     __resolveType(shoe) {
-      if (shoe.sport) return 'Sneaker'
-      return 'Boot'
-    }
+      if (shoe.sport) return "Sneaker";
+      return "Boot";
+    },
   },
-  FootWear: {
-     __resolveType(shoe) {
-      if (shoe.sport) return 'Sneaker'
-      return 'Boot'
-    }
-  },
+  // FootWear: {
+  //   __resolveType(shoe) {
+  //     if (shoe.sport) return "Sneaker";
+  //     return "Boot";
+  //   },
+  // },
   // Pet: {
   //   img(pet) {
   //     return pet.type === 'DOG'

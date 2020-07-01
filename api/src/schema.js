@@ -1,10 +1,12 @@
 const { gql } = require("apollo-server");
 
+
+// union FootWear = Sneaker | Boot
 /**
  * Type Definitions for our Schema using the SDL.
  */
 const typeDefs = gql`
-  union FootWear = Sneaker | Boot
+  
   enum ShoeType {
     JORDAN
     ADIDDAS
@@ -19,6 +21,13 @@ const typeDefs = gql`
     lastName: String!
   }
 
+  type NewUser {
+    email: String!
+    avatar: String
+    friends: [NewUser!]!
+    shoes: [Shoe]!
+}
+
   type EmploymentStatus {
     status: Boolean!
   }
@@ -26,6 +35,7 @@ const typeDefs = gql`
   interface Shoe {
     size: Int!
     brand: ShoeType!
+    user: NewUser!
   }
   type Address {
       city: String!
@@ -42,12 +52,14 @@ const typeDefs = gql`
     size: Int!
     brand: ShoeType!
     sport: String!
+    user: NewUser!
   }
 
   type Boot implements Shoe {
     size: Int!
     brand: ShoeType!
     hasGrip: Boolean!
+    user: NewUser!
   }
 
   input ShoeInput {
@@ -77,9 +89,10 @@ const typeDefs = gql`
       type: String!
   }
   type Query {
+    me: NewUser!
     shoes(input: ShoeInput): [Shoe]!
     allShoes(input: ShoeInput): [Shoe]!
-    searchShoes(input: ShoeInput): [FootWear]!
+    searchShoes(input: ShoeInput): [Shoe]!
     pets(input: PetInput): [Pet]!
     pet(input: PetInput): Pet
   }
