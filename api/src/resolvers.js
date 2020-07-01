@@ -15,7 +15,14 @@ module.exports = {
         { brand: "addidas", size: 45 },
       ].filter((shoe) => shoe.brand === input.brand);
     },
-    shoe(_, { input }) {
+    allShoes(_, { input }) {
+      return [
+        { brand: "JORDAN", size: 12, sport: 'basketball' },
+        { brand: "NIKE", size: 32, hasGrip: true },
+        { brand: "ADIDDAS", size: 45, hasGrip: false },
+      ]
+    }, 
+    searchShoes(_, { input }) {
       return [
         { brand: "JORDAN", size: 12, sport: 'basketball' },
         { brand: "NIKE", size: 32, hasGrip: true },
@@ -41,7 +48,13 @@ module.exports = {
       if (shoe.sport) return 'Sneaker'
       return 'Boot'
     }
-  }, 
+  },
+  FootWear: {
+     __resolveType(shoe) {
+      if (shoe.sport) return 'Sneaker'
+      return 'Boot'
+    }
+  },
   // Pet: {
   //   img(pet) {
   //     return pet.type === 'DOG'
