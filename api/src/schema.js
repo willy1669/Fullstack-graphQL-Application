@@ -17,6 +17,7 @@ const typeDefs = gql`
     name: String!
     firstName: String!
     lastName: String!
+    shoes: [Shoe]!
   }
 
   type EmploymentStatus {
@@ -26,6 +27,7 @@ const typeDefs = gql`
   interface Shoe {
     size: Int!
     brand: ShoeType!
+    user: User!
   }
   type Address {
       city: String!
