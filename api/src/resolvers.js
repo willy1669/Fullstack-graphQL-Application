@@ -3,6 +3,7 @@
  * the type definitions in your scheama
  */
 
+
 module.exports = {
   Query: {
     me() {
@@ -14,6 +15,7 @@ module.exports = {
         shoes: [],
       };
     },
+
     pets(_, { input }, ctx) {
       return ctx.models.Pet.findMany(input);
     },
@@ -57,18 +59,19 @@ module.exports = {
       return "Boot";
     },
   },
-  // FootWear: {
-  //   __resolveType(shoe) {
-  //     if (shoe.sport) return "Sneaker";
-  //     return "Boot";
-  //   },
-  // },
-  // Pet: {
-  //   img(pet) {
-  //     return pet.type === 'DOG'
-  //       ? 'https://placedog.net/300/300'
-  //       : 'http://placekitten.com/300/300'
-  //   }
-  // },
+  
+  FootWear: {
+    __resolveType(shoe) {
+      if (shoe.sport) return "Sneaker";
+      return "Boot";
+    },
+  },
+  Pet: {
+    img(pet) {
+      return pet.type === 'DOG'
+        ? 'https://placedog.net/300/300'
+        : 'http://placekitten.com/300/300'
+    }
+  },
   User: {},
 };
